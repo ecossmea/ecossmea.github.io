@@ -16,7 +16,7 @@ section {
   min-height: 100vh;
   min-height: 100svh;
   width: 100%;
-  background: url("background.jpg");
+  background: url("resources/background.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
