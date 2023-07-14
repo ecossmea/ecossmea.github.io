@@ -2,11 +2,21 @@
 
 :root {
   --nav-height: clamp(3.5rem, 5vw, 8rem);
-  --primary: #fff;
-  --secondary: #000;
-  --tertiary: none;
+  --primary: hsl(0,0%,100%);
+  --secondary: hsl(0,0%,0%);
+  --tertiary: hsl(0,0%, 90%);
+  --theme-font-head: hsl(0,0%,0%);
+  --theme-font-body: hsl(0,0%,20%);
   --yellow: hsl(45, 100%, 65%);
-  --blue: hsl(220, 100%, 60%);
+  --yellow-2: hsl(48, 100%, 90%);
+  --yellow-3: hsl(50,100%,95%);
+  --blue: hsl(191, 87%, 41%);
+  --instagram: linear-gradient(
+    45deg,
+    hsl(280, 100%, 60%),
+    hsl(300, 100%, 80%),
+    hsl(320, 100%, 50%)
+  );
 }
 
 
@@ -30,7 +40,7 @@ nav {
   width: 100%;
   position: fixed;
   background: transparent;
-  color: var(--secondary);
+  color: var(--theme-font-head);
   padding: 0 .5rem;
   display: flex;
   align-items: center;
@@ -57,8 +67,41 @@ nav > img {
   height: 70%;
 }
 nav > h4 {
-  color: var(--secondary);
+  color: var(--theme-font-color);
 }
+
+.scroll-top {
+  position: fixed;
+  height: 100vh;
+  height: 100svh;
+  width: 100vw;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.scroll-top > div {
+  pointer-events: auto;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  height: 3.5rem;
+  width: 3.5rem;
+  background: var(--yellow);
+  box-shadow: 0 0 .3rem rgba(0,0,0,.3);
+  right: 1rem;
+  bottom: clamp(1rem, 25vh, 1.5rem);
+  overflow: hidden;
+  transform: rotate(180deg) scale(0);
+  transition: transform 300ms ease;
+}
+
+
+.scroll-top > div svg {
+  width: 50%;
+}
+
 
 
 
@@ -121,13 +164,179 @@ nav > h4 {
 }
 
 .burger-content {
-  padding: var(--nav-height) 1rem;
   background: var(--primary);
   display: flex;
+  flex-direction: column;
   position: absolute;
   height: 100%;
   width: 70%;
   right: 0;
+  gap: 1rem;
   transform: translateX(100%);
   transition: transform 300ms ease;
 }
+
+.burger-content > h3 {
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  background: var(--tertiary);
+  color: var(--theme-font-head);
+  padding: 1rem;
+}
+
+.burger-content > div {
+  padding: 0 1rem;
+  height: auto;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+
+.dark-mode {
+  border-radius: .5rem;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,0,0,.2);
+  color: red;
+  padding: 1rem;
+  transition: background 500ms ease;
+}
+
+
+
+
+.page-nav {
+  width: 100%;
+  display: flex;
+  height: auto;
+  gap: .5rem;
+}
+
+.page-nav > a {
+  background: var(--tertiary);
+  color: var(--theme-font-head);
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0 1rem;
+  border-radius: .5rem;
+  align-items: center;
+  width: 50%;
+  aspect-ratio: 3/4;
+  overflow-x: hidden;
+}
+
+.page-nav > a svg {
+  height: 35%;
+  fill: var(--secondary);
+}
+
+.page-nav a:first-child svg {
+  transform: scaleX(.9) scaleY(.8);
+}
+
+.page-nav > a:last-child svg {
+  transform: translateY(12%);
+}
+
+.page-nav > a svg path {
+  fill: var(--secondary);
+}
+
+.socials {
+  background: var(--tertiary);
+  border-radius: .5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: var(--theme-font-head);
+}
+
+.socials > div {
+  display: flex;
+  position: relative;
+  align-items: center;
+  height: 3rem;
+  gap: .5rem;
+}
+
+.socials > div a {
+  height: 100%;
+  width: auto;
+  aspect-ratio: 1/1;
+  text-decoration: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.socials > div > a svg {
+  height: 60%;
+  aspect-ratio: 1/1;
+}
+
+.socials > div > a:first-child svg {
+  height: 50%;
+  aspect-ratio: 1/1;
+}
+
+.socials > div a:first-child {
+  background: var(--instagram);
+  background-size: 110%;
+}
+
+.socials > div a:last-child {
+  background: hsl(0, 100%, 60%);
+}
+
+
+
+.partner {
+  margin-top: var(--nav-height);
+  color: var(--theme-font-head);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.partner > div {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+
+.partner > div > a {
+  font-weight: 450;
+  text-decoration: none;
+  color: var(--theme-font-body);
+}
+
+
+
+
+@media (min-width: 40rem) {
+  .page-nav > a {
+    flex-direction: row;
+    justify-content: space-between;
+    height: 3rem;
+  }
+
+  .page-nav > a svg {
+    height: 100%;
+  }
+  
+}
+
+
+.no-scroll { overflow: hidden; }
+
+.hidden { display: none; }
