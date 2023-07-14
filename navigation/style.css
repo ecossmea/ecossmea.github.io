@@ -66,8 +66,12 @@ nav::before {
 nav > img {
   height: 70%;
 }
+
 nav > h4 {
-  color: var(--theme-font-color);
+  color: #f6d804;
+}
+nav > h4 span {
+  color: #0282ed;
 }
 
 .scroll-top {

@@ -63,13 +63,15 @@ burger.addEventListener('click', () => {
 
 
 const darkModeToggle = document.querySelector('.dark-mode');
+const themeColor = document.querySelector('meta[name="theme-color"]');
+
 
 const toggleTheme = (status) => {
   let properties = [];
   
   
   if(status) {
-    console.log(status);
+    themeColor.setAttribute('content', 'black');
     properties = [
       ['--primary', 'hsl(0, 0%, 8%'],
       ['--secondary', 'hsl(0, 0%, 90%'],
@@ -78,6 +80,7 @@ const toggleTheme = (status) => {
       ['--theme-font-body', 'hsl(0,0%,60%)']
     ]
   } else {
+    themeColor.setAttribute('content', 'white');
     properties = [
       ['--primary', 'hsl(0, 0%, 100%'],
       ['--secondary', 'hsl(0, 0%, 0%'],
