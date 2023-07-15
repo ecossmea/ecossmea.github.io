@@ -1,4 +1,4 @@
 # English Club of SMKN 3 Jepara Website Repository
-![img](logo_alpha.jpg)
+![img](logo_alpha.png)
 
 **[Visit Site](https://ecossmea.github.io)**
