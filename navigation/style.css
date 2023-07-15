@@ -92,7 +92,7 @@ nav > h4 span {
   border-radius: 50%;
   height: 3.5rem;
   width: 3.5rem;
-  background: var(--yellow);
+  background: #0282ed;
   box-shadow: 0 0 .3rem rgba(0,0,0,.3);
   right: 1rem;
   bottom: clamp(1rem, 25vh, 1.5rem);
